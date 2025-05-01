@@ -1,0 +1,18 @@
+[
+    {
+        "userId": "employer_681375ec6a670",
+        "username": "mark",
+        "businessName": "Not Specified",
+        "email": "qyu@gmail.com",
+        "password": "$2y$10$X1xU1qF.UPNEnuMR6E.DCuDgIsZW2apGiGv\/O3RpvxXsD\/8v8rOcW",
+        "user_type": "employer"
+    },
+    {
+        "userId": "employer_6813764eab1c2",
+        "username": "markanton",
+        "businessName": "Not Specified",
+        "email": "anton@gmail.com",
+        "password": "$2y$10$OksXvOctJddD3zUnT6DW.e3tivijYVGmGReej2xx4aYCSntzDFuY.",
+        "user_type": "employer"
+    }
+]
