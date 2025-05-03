@@ -1,1 +1,34 @@
-[]
+[
+    {
+        "userId": "applicant_6815764e00ef1",
+        "username": "james",
+        "skills": "Construction & Physical Work",
+        "email": "james@gmail.com",
+        "password": "$2y$10$XMQtXClQ1Efs8Iw7UQKS1eK64Wz8p2GSM1YTBYFdvl66lY40ADVHu",
+        "user_type": "applicant"
+    },
+    {
+        "userId": "employer_6815766f388f8",
+        "username": "mark",
+        "businessName": "Secret",
+        "email": "qyu@gmail.com",
+        "password": "$2y$10$QhcKYabb2u1NYvwXVkpM8OdmzwCNo7h2MhI4P7EyABOFPOfvh7kc6",
+        "user_type": "employer"
+    },
+    {
+        "userId": "applicant_6815e117e88da",
+        "username": "mark",
+        "skills": "Household & Maintenance",
+        "email": "user@gmail.com",
+        "password": "$2y$10$D5LkFRj0K9UpPYL5.TyRi.IyhljF\/iMNA0bKkqh\/FN5hv.whwDG0e",
+        "user_type": "applicant"
+    },
+    {
+        "userId": "employer_6815e13da4f8b",
+        "username": "markanton",
+        "businessName": "Not Specified",
+        "email": "new@gmail.com",
+        "password": "$2y$10$iPH1XSf3oIA6YrPXLNPf7OgnjZMQOCUaDrGEJqbHu8D9sX6WP0DGu",
+        "user_type": "employer"
+    }
+]

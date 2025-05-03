@@ -9,14 +9,14 @@ class Job {
     private $jobDescription;
     private $uploaderId;
 
-    public function __construct($jobTitle, $skills, $jobLocation, $paymentAmount, $jobDescription, $uploaderId){
+    public function __construct($jobData){
         $this->jobId = uniqid("job_");
-        $this->jobTitle = $jobTitle;
-        $this->skills = $skills;
-        $this->jobLocation = $jobLocation;
-        $this->paymentAmount = $paymentAmount;
-        $this->jobDescription = $jobDescription;
-        $this->uploaderId = $uploaderId;
+        $this->uploaderId = $jobData['uploaderId'];
+        $this->jobTitle = $jobData['jobTitle'];
+        $this->skills = $jobData['skills'];
+        $this->jobLocation = $jobData['jobLocation'];
+        $this->paymentAmount = $jobData['paymentAmount'];
+        $this->jobDescription = $jobData['jobDescription'];
     }
 
     public function getJobData(){
@@ -30,6 +30,10 @@ class Job {
             "jobDescription" => $this->jobDescription,
             "datePosted" => date('Y-m-d H:i:s')
         ];
+    }
+
+    public function getJobId(){
+        return $this->jobId;
     }
 }
 

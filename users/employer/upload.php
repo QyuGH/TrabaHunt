@@ -18,17 +18,26 @@ $skills = [
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    $jobTitle = $_POST['job_title'];
-    $skill = $_POST['skills_required'];
-    $jobLocation = $_POST['job_location'];
-    $paymentAmount = $_POST['payment_amount'];
-    $jobDescription = $_POST['job_description'];
+    $jobTitle = $_POST['job_title'] ?? '';
+    $skill = $_POST['skills_required'] ?? '';
+    $jobLocation = $_POST['job_location'] ?? '';
+    $paymentAmount = $_POST['payment_amount'] ?? '';
+    $jobDescription = $_POST['job_description'] ?? '';
 
-    $job = new Job($jobTitle, $skill, $jobLocation, $paymentAmount, $jobDescription, $loggedUser);
-    $employer = new Employer($_SESSION['user']['username'], $_SESSION['user']['email'], '', $_SESSION['user']['user_type'], $_SESSION['user']['business_name']);
+    $jobData = [
+        "uploaderId" => $loggedUser,
+        "jobTitle" => $jobTitle,
+        "skills" => $skill,
+        "jobLocation" => $jobLocation,
+        "paymentAmount" => $paymentAmount,
+        "jobDescription" => $jobDescription,
+    ];
+        
     $file = '../../data/jobs.json';
 
-    $postResult = $employer->postJob($job, $file);
+    $employer = new Employer();
+
+    $postResult = $employer->postJob($jobData, $file);
 
     if ($postResult){
         header("Location: home.php");

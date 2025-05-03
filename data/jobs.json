@@ -1,1 +1,42 @@
-[]
+[
+    {
+        "jobId": "job_6815cd4ec2034",
+        "uploaderId": "employer_6815766f388f8",
+        "jobTitle": "Cleaning",
+        "skills": "Others",
+        "jobLocation": "fdgsgfdsh",
+        "paymentAmount": "1000",
+        "jobDescription": "hfghfdghdjjd",
+        "datePosted": "2025-05-03 10:01:18"
+    },
+    {
+        "jobId": "job_6815deb218bf2",
+        "uploaderId": "employer_6815766f388f8",
+        "jobTitle": "Sample2",
+        "skills": "Personal Care",
+        "jobLocation": "dasdad",
+        "paymentAmount": "gsdgf",
+        "jobDescription": "gsdfgsdhfhjgfhj",
+        "datePosted": "2025-05-03 11:15:30"
+    },
+    {
+        "jobId": "job_6815e15d99221",
+        "uploaderId": "employer_6815e13da4f8b",
+        "jobTitle": "CompShop",
+        "skills": "Household & Maintenance",
+        "jobLocation": "Tigbauan",
+        "paymentAmount": "5000",
+        "jobDescription": "Bantay shop nearby",
+        "datePosted": "2025-05-03 11:26:53"
+    },
+    {
+        "jobId": "job_6815e4b69a2e3",
+        "uploaderId": "employer_6815766f388f8",
+        "jobTitle": "New Work",
+        "skills": "Errand & Utility Services",
+        "jobLocation": "Leon",
+        "paymentAmount": "56723",
+        "jobDescription": "adklghskjdgh",
+        "datePosted": "2025-05-03 11:41:10"
+    }
+]
