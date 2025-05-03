@@ -2,6 +2,8 @@
 
 require_once '../../src/auth.php';
 require_once '../../classes/Job.php';
+require_once '../../classes/Employer.php';
+
 $loggedUser = $_SESSION['user']['userId'];
 $skills = [
     'Skilled Labor',
@@ -23,17 +25,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $jobDescription = $_POST['job_description'];
 
     $job = new Job($jobTitle, $skill, $jobLocation, $paymentAmount, $jobDescription, $loggedUser);
-
+    $employer = new Employer($_SESSION['user']['username'], $_SESSION['user']['email'], '', $_SESSION['user']['user_type'], $_SESSION['user']['business_name']);
     $file = '../../data/jobs.json';
 
-    $saveResult = $job->saveJob($file);
+    $postResult = $employer->postJob($job, $file);
 
-    if ($saveResult){
+    if ($postResult){
         header("Location: home.php");
         exit();
     }
     else {
-        $error = $saveResult;
+        $error = $postResult;
     }
 }
 

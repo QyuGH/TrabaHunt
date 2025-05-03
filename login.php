@@ -2,12 +2,21 @@
 require_once 'classes/User.php';
 
 session_start();
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $input = trim($_POST['email']);
-    $password = $_POST['password'];
 
-    $user = new User('', '', '', '');
-    $result = $user->login($input, $password);
+$result = '';
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+    $password = $_POST['password'] ?? '' ;
+
+    if (!empty($password)){
+        $user = new User('', '', '', '');
+        $result = $user->login($email, $password);
+    }
+    else {
+        $error = "Password cannot be empty!";
+    }
 
     if ($result === true) {
         if ($_SESSION['user']['user_type'] === 'employer') {

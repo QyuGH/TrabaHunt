@@ -32,7 +32,27 @@
                     $jobs = json_decode($jobs_data, true);
 
                     if (!empty($jobs)) {
-                        
+                        $user_jobs = [];
+                        foreach ($jobs as $job) {
+                            if ($job['uploaderId'] === $loggedUser) {
+                                $user_jobs[] = $job;
+                            }
+                        }
+                
+                        if (!empty($user_jobs)) {
+                            foreach ($user_jobs as $job) {
+                                echo "<div class='job-post'>";
+                                echo "<h3>" . htmlspecialchars($job['jobTitle']) . "</h3>";
+                                echo "<p><strong>Skills Required:</strong> " . htmlspecialchars($job['skills']) . "</p>";
+                                echo "<p><strong>Location:</strong> " . htmlspecialchars($job['jobLocation']) . "</p>";
+                                echo "<p><strong>Payment:</strong> ₱" . htmlspecialchars($job['paymentAmount']) . "</p>";
+                                echo "<p><strong>Description:</strong> " . htmlspecialchars($job['jobDescription']) . "</p>";
+                                echo "<p><strong>Date Posted:</strong> " . htmlspecialchars($job['datePosted']) . "</p>";
+                                echo "</div>";
+                            }
+                        } else {
+                            echo '<div class="empty-state">No jobs have been posted yet.</div>';
+                        }
                     } else {
                         echo '<div class="empty-state">No jobs have been posted yet.</div>';
                     }

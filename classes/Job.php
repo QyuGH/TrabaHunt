@@ -19,14 +19,8 @@ class Job {
         $this->uploaderId = $uploaderId;
     }
 
-    public function saveJob($file){
-        if (!file_exists($file)){
-            file_put_contents($file, json_encode([]));
-        }
-
-        $data = json_decode(file_get_contents($file), true) ?? [];
-
-        $jobData = [
+    public function getJobData(){
+        return $jobData = [
             "jobId" => $this->jobId,
             "uploaderId" => $this->uploaderId,
             "jobTitle" => $this->jobTitle,
@@ -36,12 +30,6 @@ class Job {
             "jobDescription" => $this->jobDescription,
             "datePosted" => date('Y-m-d H:i:s')
         ];
-
-        $data[] = $jobData; 
-
-        $saved = file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT));
-
-        return $saved !== false;
     }
 }
 

@@ -1,6 +1,7 @@
 <?php 
 
 require_once 'User.php';
+require_once 'Job.php';
 class Employer extends User{
     private $userId;
     private $businessName;
@@ -22,8 +23,20 @@ class Employer extends User{
         ];
     }
 
-    public function postJob(){
-        //logic to be implemented later
+    public function postJob(Job $job, $file){
+        if (!file_exists($file)){
+            file_put_contents($file, json_encode([]));
+        }
+
+        $data = json_decode(file_get_contents($file), true) ?? [];
+
+        $jobData = $job->getJobData();
+
+        $data[] = $jobData; 
+
+        $saved = file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT));
+
+        return $saved !== false;
     }
 }
 

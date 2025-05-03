@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TrabaHunt - Find Your Next Job</title>
     <link rel="stylesheet" href="css/landing-page.css" />
 </head>
@@ -15,6 +15,7 @@
                     <a href="#" class="active">Home</a>
                     <a href="#">About Us</a>
                     <a href="#">Contact</a>
+                    <a href="login.php" class="btn btn-login">Login</a>
                 </div>
             </nav>
         </div>
@@ -24,8 +25,8 @@
         <div class="container">
             <h1>Find Your Next Job Opportunity</h1>
             <p>Connect with employers and find jobs that match your skills and interests. TrabaHunt makes job hunting easier!</p>
-            <a href="registerEmployer.php" class="btn btn-white">Register as Employer</a>
-            <a href="registerApplicant.php" class="btn btn-white">Register as Applicant</a>
+            <a href="registerEmployer.php" class="btn btn-cl">Register as Employer</a>
+            <a href="registerApplicant.php" class="btn btn-cl">Register as Applicant</a>
         </div>
     </section>
 
