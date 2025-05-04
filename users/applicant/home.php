@@ -12,7 +12,7 @@
         <nav class="navbar">
             <div class="nav-links">
                 <a href="#" class="nav-item active">Home</a>
-                <a href="#" class="nav-item">Profile</a>
+                <a href="profile.php" class="nav-item">Profile</a>
                 <a href="#" class="nav-item">Notifications</a>
                 <!-- Search bar -->
                 <form class="search-form" method="GET" action="">

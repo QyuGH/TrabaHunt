@@ -18,7 +18,7 @@ class Applicant extends User{
             "skills" => $this->skills,
             "email" => $this->email,
             "password" => $this->password,
-            "user_type" => $this->user_type
+            "user_type" => $this->userType
         ];
     }
 
@@ -31,7 +31,7 @@ class Applicant extends User{
         }
     
         $jobs_data = file_get_contents($jobs_file);
-        $jobs = json_decode($jobs_data, true);
+        $jobs = array_reverse(json_decode($jobs_data, true));
     
         if (empty($jobs)) {
             echo "<div class='empty-state'>No jobs are available at the moment.</div>";
@@ -46,7 +46,7 @@ class Applicant extends User{
             echo "<p><strong>Payment:</strong> ₱" . htmlspecialchars($job['paymentAmount']) . "</p>";
             echo "<p><strong>Description:</strong> " . htmlspecialchars($job['jobDescription']) . "</p>";
             echo "<p><strong>Date Posted:</strong> " . htmlspecialchars($job['datePosted']) . "</p>";
-            echo "<form method='POST' action='apply.php' style='text-align: right;'>";
+            echo "<form method='POST' action='' style='text-align: right;'>";  // action to be implemented later
             echo "<input type='hidden' name='jobId' value='" . htmlspecialchars($job['jobId']) . "'>";
             echo "<button type='submit' class='upload-btn'>Apply</button>";
             echo "</form>";
@@ -58,7 +58,7 @@ class Applicant extends User{
         return $this->userId;
     }
 
-    public function updateApplicantData(){
+    public function updateProfile(){
         //function to add data for applicant profile
     }
 }

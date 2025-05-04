@@ -38,5 +38,15 @@
         "paymentAmount": "56723",
         "jobDescription": "adklghskjdgh",
         "datePosted": "2025-05-03 11:41:10"
+    },
+    {
+        "jobId": "job_681714166ad88",
+        "uploaderId": "employer_6815766f388f8",
+        "jobTitle": "Cleaning",
+        "skills": "Construction & Physical Work",
+        "jobLocation": "Leon, Iloilo",
+        "paymentAmount": "500",
+        "jobDescription": "Samplefsflahdfhafh",
+        "datePosted": "2025-05-04 09:15:34"
     }
 ]

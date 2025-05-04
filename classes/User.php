@@ -4,15 +4,15 @@ class User {
     protected $username;
     protected $email;
     protected $password;
-    protected $user_type;
+    protected $userType;
 
     private $userJson = __DIR__ . '/../data/users.json';
 
-    public function __construct($username, $email, $password, $user_type) {
+    public function __construct($username, $email, $password, $userType) {
         $this->username = $username;
         $this->email = $email;
         $this->password = password_hash($password, PASSWORD_DEFAULT);
-        $this->user_type = $user_type;
+        $this->userType = $userType;
     }
 
     public function registerUser($userData) {
@@ -60,6 +60,11 @@ class User {
         }
     
         return "Invalid login credentials.";
+    }
+
+    public function logout(){
+        header("Location: ../../index.php");
+        exit();
     }
     
 }

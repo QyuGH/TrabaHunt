@@ -20,7 +20,7 @@ class Employer extends User{
             "businessName" => $this->businessName,
             "email" => $this->email,
             "password" => $this->password,
-            "user_type" => $this->user_type
+            "user_type" => $this->userType
         ];
     }
 
@@ -56,9 +56,16 @@ class Employer extends User{
             return;
         }
     
-        $user_jobs = array_filter($jobs, function($job) use ($loggedUser) {
-            return $job['uploaderId'] === $loggedUser;
-        });
+        $user_jobs = [];
+
+        foreach ($jobs as $job) {
+            if ($job['uploaderId'] === $loggedUser) {
+                $user_jobs[] = $job;
+            }
+        }
+
+        $user_jobs = array_reverse($user_jobs); 
+
     
         if (empty($user_jobs)) {
             echo '<div class="empty-state">No jobs have been posted yet.</div>';
@@ -73,11 +80,15 @@ class Employer extends User{
             echo "<p><strong>Payment:</strong> ₱" . htmlspecialchars($job['paymentAmount']) . "</p>";
             echo "<p><strong>Description:</strong> " . htmlspecialchars($job['jobDescription']) . "</p>";
             echo "<p><strong>Date Posted:</strong> " . htmlspecialchars($job['datePosted']) . "</p>";
+            echo "<form action='' method='GET'>"; // action to be implemented later
+            echo "<input type='hidden' name='jobId' value='" . htmlspecialchars($job['jobId']) . "'>";
+            echo "<button type='submit' class='view-btn'>View Applicants</button>";
+            echo "</form>";
             echo "</div>";
         }
     }
     
-    public function updateEmployerData(){
+    public function updateProfile(){
         //function to add data for employer profile
     }
 

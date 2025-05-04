@@ -12,7 +12,7 @@
         <nav class="navbar">
             <div class="nav-links">
                 <a href="#" class="nav-item active">Home</a>
-                <a href="#" class="nav-item">Profile</a>
+                <a href="profile.php" class="nav-item">Profile</a>
                 <a href="#" class="nav-item">Notifications</a>
                 <a href="upload.php" class="upload-btn">Post New Job</a>
             </div>
