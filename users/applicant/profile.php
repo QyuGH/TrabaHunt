@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Applicant</title>
+    <link rel="stylesheet" href="../../css/navigations.css">
     <link rel="stylesheet" href="designs/home.css">
 </head>
 <body>
@@ -33,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         <section class="jobs-section">
             <h2 class="section-header">Your Profile</h2>
             <div class="empty-state">
-                <!-- You can place profile details here later -->
                 <form method="POST">
                     <button class="upload-btn" name="logout" type="submit">Logout</button>
                 </form>

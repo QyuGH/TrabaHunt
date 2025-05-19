@@ -7,6 +7,8 @@ $userType = 'employer';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
+    $address = $_POST['address'];
+    $contact = $_POST['contact'];
     $email = trim($_POST['email']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
@@ -16,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($password !== $confirm_password) {
         $error = "Passwords do not match.";
     } else {
-        $employer = new Employer($username, $email, $password, $userType, $businessName);
+        $employer = new Employer($username, $address, $contact, $email, $password, $userType, $businessName);
         $employerData = $employer->getEmployerData();
         $result = $employer->registerUser($employerData);
 
@@ -55,7 +57,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="form-group">
                     <label for="business_name">Business Name</label>
-                    <input type="text" id="business_name" name="business_name" placeholder="Optional">
+                    <input type="text" id="business_name" name="business_name" placeholder="e.g. Tallyer Vulcanizing" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">Contact Number:</label>
+                    <input type="tel" id="contact" name="contact" pattern="[0-9]{11}" placeholder="09XXXXXXXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" placeholder="123 Main St, City, Province" required>
                 </div>
                 
                 <div class="form-group">

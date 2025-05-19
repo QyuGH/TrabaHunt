@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '' ;
 
     if (!empty($password)){
-        $user = new User('', '', '', '');
+        $user = new User('', '', '', '', '', '');
         $result = $user->login($email, $password);
     }
     else {

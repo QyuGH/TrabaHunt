@@ -7,8 +7,8 @@ class Employer extends User{
     private $businessName;
     private $job;
 
-    public function __construct($username = '', $email = '', $password = '', $user_type = '', $businessName = ''){
-        parent::__construct($username, $email, $password, $user_type);
+    public function __construct($username = '', $address = '', $contactNumber = '', $email = '', $password = '', $user_type = '', $businessName = ''){
+        parent::__construct($username, $address, $contactNumber, $email, $password, $user_type);
         $this->userId = uniqid("employer_");
         $this->businessName = $businessName;
     }
@@ -18,6 +18,8 @@ class Employer extends User{
             "userId" => $this->userId,
             "username" => $this->username,
             "businessName" => $this->businessName,
+            "address" => $this->address,
+            "contact" => $this->contactNumber,
             "email" => $this->email,
             "password" => $this->password,
             "user_type" => $this->userType
@@ -74,22 +76,21 @@ class Employer extends User{
     
         foreach ($user_jobs as $job) {
             echo "<div class='job-post'>";
+           
+            echo "<form action='' method='POST' class='delete-form'>";
+            echo "<input type='hidden' name='job_id' value='" . htmlspecialchars($job['jobId']) . "'>";
+            echo "<button type='submit' class='delete-btn'><i class='fas fa-trash'></i></button>";
+            echo "</form>";
+
             echo "<h3>" . htmlspecialchars($job['jobTitle']) . "</h3>";
             echo "<p><strong>Skills Required:</strong> " . htmlspecialchars($job['skills']) . "</p>";
             echo "<p><strong>Location:</strong> " . htmlspecialchars($job['jobLocation']) . "</p>";
             echo "<p><strong>Payment:</strong> ₱" . htmlspecialchars($job['paymentAmount']) . "</p>";
             echo "<p><strong>Description:</strong> " . htmlspecialchars($job['jobDescription']) . "</p>";
             echo "<p><strong>Date Posted:</strong> " . htmlspecialchars($job['datePosted']) . "</p>";
-            echo "<form action='' method='GET'>"; // action to be implemented later
-            echo "<input type='hidden' name='jobId' value='" . htmlspecialchars($job['jobId']) . "'>";
-            echo "<button type='submit' class='view-btn'>View Applicants</button>";
-            echo "</form>";
+            echo "<a href='applications.php' class='view-btn'>View Applicants</a>";
             echo "</div>";
         }
-    }
-    
-    public function updateProfile(){
-        //function to add data for employer profile
     }
 
     public function getUserId(){

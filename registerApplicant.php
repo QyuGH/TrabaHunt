@@ -5,18 +5,31 @@ require_once 'classes/Applicant.php';
 $error = '';
 $userType = 'applicant';
 $skills = [
-    'Skilled Labor',
-    'Household & Maintenance',
-    'Construction & Physical Work',
-    'Food & Event Services',
-    'Personal Care',
-    'Errand & Utility Services',
+    'Housekeeping (e.g., General Cleaning, Organizing Rooms)',
+    'Laundry Services (e.g., Handwashing Clothes, Ironing)',
+    'Childcare Assistance (e.g., Babysitting, Feeding Toddlers)',
+    'Elderly Care (e.g., Assisting Mobility, Medication Reminders)',
+    'Gardening (e.g., Grass Trimming, Plant Maintenance)',
+    'Pet Care (e.g., Dog Walking, Bathing Pets)',
+    'Haircutting (e.g., Basic Haircut)',
+    'Shoe Repair (e.g., Sole Replacement, Stitching)',
+    'Event Decorating (e.g., Table Setup, Event Arrangements)',
+    'Delivery Services (e.g., Parcel Pickup, Water Gallon Delivery)',
+    'Electrical Works (e.g., House Wiring, Lighting Installation)',
+    'Plumbing (e.g., Pipe Repair, Faucet Installation)',
+    'Carpentry (e.g., Door Repair, Cabinet Making)',
+    'Construction (e.g., Wall Patching, Cement Mixing)',
+    'Welding (e.g., Gate Repair, Steel Window Fabrication)',
+    'Motorcycle Repair (e.g., Change Oil, Brake Adjustment)',
+    'Appliance Servicing (e.g., Electric Fan Repair, Aircon Cleaning)',
     'Others'
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
     $mainSkill = $_POST['main_skill'];
+    $contact = $_POST['address'];
+    $address = $_POST['address'];
     $email = trim($_POST['email']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
@@ -24,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($password !== $confirm_password) {
         $error = "Passwords do not match.";
     } else {
-        $applicant = new Applicant($username, $email, $password, $userType, $mainSkill);
+        $applicant = new Applicant($username, $address, $contact, $email, $password, $userType, $mainSkill);
         $applicantData = $applicant->getApplicantData();
         $result = $applicant->registerUser($applicantData);
 
@@ -62,13 +75,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-group">
-                    <label for="skills_required">Main Skills</label>
+                    <label for="skills_required">Main Expertise</label>
                     <select id="skills_required" name="main_skill" required>
-                        <option value="">Select Main Skills</option>
+                        <option value="">Select Main Expertise</option>
                         <?php foreach ($skills as $skill): ?>
                             <option value="<?= htmlspecialchars($skill) ?>"><?= htmlspecialchars($skill) ?></option>
                         <?php endforeach; ?>
                     </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact">Contact Number:</label>
+                    <input type="tel" id="contact" name="contact" pattern="[0-9]{11}" placeholder="09XXXXXXXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" placeholder="123 Main St, City, Province" required>
                 </div>
                 
                 <div class="form-group">

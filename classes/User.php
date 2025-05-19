@@ -1,15 +1,20 @@
 <?php
 
 class User {
+    protected $fullname;
     protected $username;
     protected $email;
     protected $password;
+    protected $address;
+    protected $contactNumber;
     protected $userType;
 
     private $userJson = __DIR__ . '/../data/users.json';
 
-    public function __construct($username, $email, $password, $userType) {
+    public function __construct($username, $address, $contactNumber, $email, $password, $userType) {
         $this->username = $username;
+        $this->address = $address;
+        $this->contactNumber = $contactNumber;
         $this->email = $email;
         $this->password = password_hash($password, PASSWORD_DEFAULT);
         $this->userType = $userType;
@@ -51,6 +56,8 @@ class User {
                 $_SESSION['user'] = [
                     'userId' => $user['userId'],
                     'username' => $user['username'],
+                    'address' => $user['address'],
+                    'contact' => $user['contact'],
                     'email' => $user['email'],
                     'user_type' => $user['user_type'],
                 ];
@@ -65,6 +72,10 @@ class User {
     public function logout(){
         header("Location: ../../index.php");
         exit();
+    }
+
+    public function updateProfile(){
+        //
     }
     
 }

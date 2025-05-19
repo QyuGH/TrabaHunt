@@ -2,14 +2,11 @@
 require_once '../../src/auth.php';
 require_once '../../classes/Employer.php';
 
-// Get currently logged-in user ID
 $currentUserId = $_SESSION['user']['userId'] ?? null;
 $currentUser = null;
 
-// Read the users.json file
 $usersData = json_decode(file_get_contents('../../data/users.json'), true);
 
-// Find the current employer in the JSON file
 if ($currentUserId && $usersData) {
     foreach ($usersData as $user) {
         if ($user['userId'] === $currentUserId && $user['user_type'] === 'employer') {
@@ -33,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employer Profile</title>
+    <link rel="stylesheet" href="../../css/navigations.css">
     <link rel="stylesheet" href="designs/home.css">
 </head>
 <body>
@@ -66,13 +64,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <label>Business Name:</label> <?= htmlspecialchars($currentUser['businessName']) ?>
                 </div>
                 <div class="profile-item">
-                    <label>Phone Number:</label> <em>Not set</em>
+                    <label>Phone Number:</label> <?= htmlspecialchars($currentUser['contact']) ?>
                 </div>
                 <div class="profile-item">
-                    <label>Address:</label> <em>Not set</em>
+                    <label>Address:</label> <?= htmlspecialchars($currentUser['address']) ?>
                 </div>
             <?php else: ?>
-                <p>User not found or not logged in.</p>
+                <p>Data Unavailable</p>
             <?php endif; ?>
         </div>
 

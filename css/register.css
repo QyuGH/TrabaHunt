@@ -51,6 +51,7 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="tel"],
 select {
     width: 100%;
     padding: 10px;
@@ -61,8 +62,9 @@ select {
     background-color: var(--white);
     color: var(--text-color);
     cursor: pointer;
-    appearance: none; /* removes default OS styling */
+    appearance: none; /* Optional for consistent look */
 }
+
 
 select {
     background-image: none; /* removes SVG arrow */

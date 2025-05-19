@@ -5,8 +5,8 @@ class Applicant extends User{
     private $userId;
     private $skills;
 
-    public function __construct($username = '', $email = '', $password = '', $user_type = '', $skills = ''){
-        parent::__construct($username, $email, $password, $user_type);
+    public function __construct($username = '', $address = '', $contactNumber = '', $email = '', $password = '', $user_type = '', $skills = ''){
+        parent::__construct($username, $address, $contactNumber, $email, $password, $user_type);
         $this->userId = uniqid("applicant_");
         $this->skills = $skills;
     }
@@ -16,6 +16,8 @@ class Applicant extends User{
             "userId" => $this->userId,
             "username" => $this->username,
             "skills" => $this->skills,
+            "address" => $this->address,
+            "contact" => $this->contactNumber,
             "email" => $this->email,
             "password" => $this->password,
             "user_type" => $this->userType
